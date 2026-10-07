@@ -1,11 +1,9 @@
-"use client";
-
 import Image from "next/image";
+import NavLinks from "./NavLinks";
+import TodaysDate from "./TodaysDate";
 
 const Header = () => {
-  const date = new Date().toLocaleDateString("bn-BD", {
-    dateStyle: "full",
-  });
+  
 
   return (
     <nav className="border-b border-blue-100 bg-linear-to-r from-blue-50 via-white to-sky-50">
@@ -27,9 +25,7 @@ const Header = () => {
               <h2 className="truncate text-lg font-bold tracking-tight text-blue-950 sm:text-xl">
                 বাজার দর
               </h2>
-              <p className="min-h-5 truncate text-xs text-slate-500 sm:text-sm">
-                {date}
-              </p>
+              <TodaysDate />
             </div>
           </div>
 
@@ -45,6 +41,8 @@ const Header = () => {
           </div>
         </div>
       </div>
+
+      <NavLinks />
     </nav>
   );
 };
