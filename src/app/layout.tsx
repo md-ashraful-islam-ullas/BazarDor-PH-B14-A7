@@ -4,9 +4,10 @@ import "./globals.css";
 import Header from "@/components/Header";
 import Marquee from "@/components/Marquee";
 import Banner from "@/components/Banner";
+import Footer from "@/components/Footer";
 
 const notoSerifBengali = Noto_Serif_Bengali({
-  subsets: ["latin", 'bengali'],
+  subsets: ["latin", "bengali"],
 });
 
 export const metadata: Metadata = {
@@ -18,14 +19,18 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="en"
-      data-theme='light'
+      data-theme="light"
       className={`${notoSerifBengali.className} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
         <Header />
         <Marquee />
-        <Banner />
-        {children}</body>
+        <main>
+          <Banner />
+          {children}
+        </main>
+        <Footer />
+      </body>
     </html>
   );
 }

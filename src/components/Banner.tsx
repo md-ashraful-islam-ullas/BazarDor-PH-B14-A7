@@ -1,4 +1,3 @@
-import Link from "next/link";
 import TodaysDate from "./TodaysDate";
 import Image from "next/image";
 

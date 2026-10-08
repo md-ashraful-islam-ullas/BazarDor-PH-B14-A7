@@ -1,4 +1,3 @@
-import ProductCard from "./ProductCard";
 import SortedAllProducts from "./SortedAllProducts";
 interface Product {
   id: number;
