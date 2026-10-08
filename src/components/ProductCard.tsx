@@ -5,7 +5,7 @@ export interface Product {
   today: number;
   unit: string;
   change: {
-    dir: "up" | "down";
+    dir: "up" | "down" | "flat";
     pct: number;
   };
 }
@@ -19,7 +19,20 @@ const unitLabels: Record<string, string> = {
 
 const ProductCard = ({ product }: { product: Product }) => {
   const { nameBn, image, today, unit, change } = product;
-  const isUp = change.dir === "up";
+
+  let badgeClass = "";
+  let symbol = "";
+
+  if (change.dir === "up") {
+    badgeClass = "bg-red-50 text-red-600";
+    symbol = "▲";
+  } else if (change.dir === "down") {
+    badgeClass = "bg-green-100 text-green-600";
+    symbol = "▼";
+  } else {
+    badgeClass = "bg-slate-100 text-black";
+    symbol = "–";
+  }
 
   return (
     <div className="rounded-2xl border border-blue-100 bg-linear-to-r from-blue-50 via-white to-sky-50 p-4 transition-shadow hover:shadow-sm">
@@ -48,11 +61,9 @@ const ProductCard = ({ product }: { product: Product }) => {
         </div>
 
         <span
-          className={`rounded-full px-2.5 py-1 text-xs font-semibold ${
-            isUp ? "bg-red-50 text-red-600" : "bg-green-50 text-green-600"
-          }`}
+          className={`rounded-full px-2.5 py-1 text-xs font-semibold ${badgeClass}`}
         >
-          {isUp ? "▲" : "▼"} {Math.abs(change.pct).toLocaleString("bn-BD")}%
+          {symbol} {Math.abs(change.pct).toLocaleString("bn-BD")}%
         </span>
       </div>
     </div>

@@ -7,7 +7,7 @@ interface Product {
   today: number;
   unit: string;
   change: {
-    dir: "up" | "down";
+    dir: "up" | "down" | "flat";
     pct: number;
   };
 }
