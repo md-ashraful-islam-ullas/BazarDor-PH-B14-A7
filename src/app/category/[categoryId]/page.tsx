@@ -1,24 +1,11 @@
 import SortedAllProducts from "@/components/SortedAllProducts";
+import { IProduct } from "@/types/product";
 
 interface ICategory {
   icon: string;
   id: string;
   nameBn: string;
   slug: string;
-}
-
-interface ICategoryDetails {
-  id: number;
-  nameBn: string;
-  category: string;
-  categoryIcon: string;
-  image: string;
-  unit: string;
-  today: number;
-  change: {
-    dir: "up" | "down" | "flat";
-    pct: number;
-  };
 }
 
 const CategoryPage = async ({
@@ -36,11 +23,11 @@ const CategoryPage = async ({
   const categoryDetailsRes = await fetch(
     "https://api.api-store.workers.dev/api/bazardor/products",
   );
-  const categoryDetailsData: ICategoryDetails[] =
+  const categoryDetailsData: IProduct[] =
     await categoryDetailsRes.json();
   //   console.log(categoryDetailsData)
 
-  const filteredProducts: ICategoryDetails[] = categoryDetailsData.filter(
+  const filteredProducts: IProduct[] = categoryDetailsData.filter(
     (product) => product.category === categoryData.id,
   );
 //   console.log(filteredProducts);

@@ -3,22 +3,10 @@
 import React, { useState } from "react";
 import ProductCard from "./ProductCard";
 import Link from "next/link";
-
-interface Product {
-  id: number;
-  nameBn: string;
-  image: string;
-  today: number;
-  unit: string;
-  slug: string;
-  change: {
-    dir: "up" | "down" | "flat";
-    pct: number;
-  };
-}
+import { IProduct } from "@/types/product";
 
 interface ProductListProps {
-  products: Product[];
+  products: IProduct[];
 }
 
 const SortedAllProducts = ({ products }: ProductListProps) => {
