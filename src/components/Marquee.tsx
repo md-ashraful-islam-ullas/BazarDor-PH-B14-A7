@@ -1,3 +1,4 @@
+import Link from "next/link";
 import MarqueeText from "react-marquee-text";
 import "react-marquee-text/dist/styles.css";
 
@@ -7,6 +8,7 @@ interface Product {
   image: string;
   today: number;
   unit: string;
+  slug: string;
   change: {
     dir: "up" | "down";
     pct: number;
@@ -26,9 +28,10 @@ const Marquee = async () => {
   return (
     <div className="border-b border-blue-100 bg-white">
       <MarqueeText className="py-2" direction="right" duration={15} pauseOnHover>
-        {data.map(({ id, nameBn, image, today, unit, change }) => (
-          <div
+        {data.map(({ id, nameBn, image, today, unit, change, slug }) => (
+          <Link
             key={id}
+            href={`/product/${slug}`}
             className="mr-6 flex items-center gap-2 border-r border-gray-200 pr-6 text-sm"
           >
             <span>{image}</span>
@@ -43,7 +46,7 @@ const Marquee = async () => {
             >
               {change.dir === "up" ? "▲" : "▼"} {Math.abs(change.pct)}%
             </span>
-          </div>
+          </Link>
         ))}
       </MarqueeText>
     </div>
