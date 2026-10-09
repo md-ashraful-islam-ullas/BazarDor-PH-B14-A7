@@ -45,7 +45,7 @@ const Footer = () => {
         </div>
 
         <div className="mt-8 border-t border-slate-200 pt-6 text-center text-sm text-slate-500">
-          © {new Date().getFullYear()} বাজারদর। সর্বস্বত্ব সংরক্ষিত।
+          © 2026 বাজারদর। সর্বস্বত্ব সংরক্ষিত।
         </div>
       </div>
     </footer>

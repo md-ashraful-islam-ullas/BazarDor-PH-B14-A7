@@ -15,10 +15,10 @@ interface Product {
 }
 
 const PriceHikeT6 = async () => {
+  "use cache";
   const res = await fetch("https://api.abcz.workers.dev/api/bazardor/products");
   const data: Product[] = await res.json();
   const top6 = data.toSorted((a, b) => b.change.pct - a.change.pct).slice(0, 6);
-  console.log(top6);
   return (
     <div>
       <span className="flex gap-3 pt-7 pb-3">

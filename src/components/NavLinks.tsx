@@ -1,5 +1,6 @@
+import { Suspense } from "react";
+import NavLinksItem from "./NavLinksItem";
 import Link from "next/link";
-import React from "react";
 
 interface Navs {
   id: string;
@@ -9,13 +10,10 @@ interface Navs {
 }
 
 const NavLinks = async () => {
+  "use cache";
   const res = await fetch(
     "https://api.api-store.workers.dev/api/bazardor/categories",
   );
-
-  if (!res.ok) {
-    throw new Error(`Failed to fetch categories: ${res.status}`);
-  }
 
   const data: Navs[] = await res.json();
 
@@ -27,17 +25,19 @@ const NavLinks = async () => {
                    scrollbar-none [&::-webkit-scrollbar]:hidden"
       >
         {data.map((n) => (
-          <Link
-            href={`/category/${n.slug}`}
+          <Suspense
             key={n.id}
-            className="shrink-0 snap-start rounded-full px-3 py-1.5 text-sm sm:text-base
-                       whitespace-nowrap hover:bg-gray-100 active:bg-gray-200"
+            fallback={
+              <Link
+                href={`/category/${n.slug}`}
+                className="shrink-0 snap-start rounded-full px-3 py-1.5 text-sm sm:text-base whitespace-nowrap"
+              >
+                <span>{n.icon}</span> <span>{n.nameBn}</span>
+              </Link>
+            }
           >
-            <div className="flex items-center gap-2">
-              <span>{n.icon}</span>
-              <span>{n.nameBn}</span>
-            </div>
-          </Link>
+            <NavLinksItem slug={n.slug} nameBn={n.nameBn} icon={n.icon} />
+          </Suspense>
         ))}
       </div>
     </nav>

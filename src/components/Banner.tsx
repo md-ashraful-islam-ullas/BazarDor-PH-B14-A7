@@ -1,3 +1,4 @@
+import { Suspense } from "react";
 import TodaysDate from "./TodaysDate";
 import Image from "next/image";
 
@@ -8,7 +9,9 @@ const Banner = () => {
         {/* Text */}
         <div className="max-w-xl">
           <span className="inline-block min-h-7 min-w-44 rounded-full bg-blue-100 px-3 py-1 text-xs font-semibold text-blue-700 sm:text-sm">
-            <TodaysDate />
+            <Suspense fallback={<p className="min-h-5 text-xs sm:text-sm" />}>
+              <TodaysDate />
+            </Suspense>
           </span>
 
           <h1 className="mt-5 text-3xl font-bold tracking-tight text-blue-950 sm:text-4xl">

@@ -2,6 +2,7 @@ import { IProduct } from "@/types/product";
 import SortedAllProducts from "./SortedAllProducts";
 
 const AllProduct = async () => {
+  "use cache";
   const res = await fetch("https://api.abcz.workers.dev/api/bazardor/products");
   const data: IProduct[] = await res.json();
 

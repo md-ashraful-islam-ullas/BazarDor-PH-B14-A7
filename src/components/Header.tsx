@@ -1,10 +1,10 @@
 import Image from "next/image";
 import NavLinks from "./NavLinks";
 import TodaysDate from "./TodaysDate";
+import { Suspense } from "react";
+import Link from "next/link";
 
 const Header = () => {
-  
-
   return (
     <nav className="border-b border-blue-100 bg-linear-to-r from-blue-50 via-white to-sky-50">
       <div className="mx-auto max-w-7xl px-3 sm:px-6">
@@ -22,10 +22,14 @@ const Header = () => {
             </div>
 
             <div className="min-w-0">
-              <h2 className="truncate text-lg font-bold tracking-tight text-blue-950 sm:text-xl">
-                বাজার দর
-              </h2>
-              <TodaysDate />
+              <Link href="/">
+                <h2 className="truncate text-lg font-bold tracking-tight text-blue-950 sm:text-xl">
+                  বাজার দর
+                </h2>
+              </Link>
+              <Suspense fallback={<p className="min-h-5 text-xs sm:text-sm" />}>
+                <TodaysDate />
+              </Suspense>
             </div>
           </div>
 
