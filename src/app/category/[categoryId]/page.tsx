@@ -43,10 +43,10 @@ const CategoryPage = async ({
   const filteredProducts: ICategoryDetails[] = categoryDetailsData.filter(
     (product) => product.category === categoryData.id,
   );
-  console.log(filteredProducts);
+//   console.log(filteredProducts);
 
   return (
-    <div className="max-w-7xl mx-auto py-4">
+    <div className="max-w-7xl mx-auto px-3 py-4 sm:px-6 sm:py-6">
       <div className="flex items-center gap-4 rounded-3xl border border-gray-200 bg-white/70 px-5 py-5 my-4 shadow-sm">
         <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-blue-100  text-3xl">
           {categoryData.icon}

@@ -5,6 +5,7 @@ interface Product {
   image: string;
   today: number;
   unit: string;
+  slug: string;
   change: {
     dir: "up" | "down" | "flat";
     pct: number;

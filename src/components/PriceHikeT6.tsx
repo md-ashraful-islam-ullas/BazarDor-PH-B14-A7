@@ -1,11 +1,13 @@
 import React from "react";
 import ProductCard from "./ProductCard";
+import Link from "next/link";
 interface Product {
   id: number;
   nameBn: string;
   image: string;
   today: number;
   unit: string;
+  slug: string;
   change: {
     dir: "up" | "down" | "flat";
     pct: number;
@@ -25,7 +27,7 @@ const PriceHikeT6 = async () => {
       </span>
       <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {top6.map((p) => (
-          <ProductCard key={p.id} product={p} />
+          <Link href={`/product/${p.slug}`} key={p.id}><ProductCard  product={p} /></Link>
         ))}
       </div>
     </div>

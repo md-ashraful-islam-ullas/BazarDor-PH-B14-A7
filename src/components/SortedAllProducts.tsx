@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import ProductCard from "./ProductCard";
+import Link from "next/link";
 
 interface Product {
   id: number;
@@ -9,6 +10,7 @@ interface Product {
   image: string;
   today: number;
   unit: string;
+  slug: string;
   change: {
     dir: "up" | "down" | "flat";
     pct: number;
@@ -57,7 +59,7 @@ const SortedAllProducts = ({ products }: ProductListProps) => {
 
       <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {sortedProducts.map((product) => (
-          <ProductCard key={product.id} product={product} />
+          <Link href={`/product/${product.slug}`} key={product.id}><ProductCard  product={product} /></Link>
         ))}
       </div>
     </>
