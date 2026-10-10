@@ -3,6 +3,7 @@ import NavLinks from "./NavLinks";
 import TodaysDate from "./TodaysDate";
 import { Suspense } from "react";
 import Link from "next/link";
+import UserInfo from "./UserInfo";
 
 const Header = () => {
   return (
@@ -35,13 +36,7 @@ const Header = () => {
 
           {/* Buttons */}
           <div className="flex shrink-0 items-center gap-1.5 sm:gap-2">
-            <button className="btn btn-sm sm:btn-md rounded-lg border-blue-200 bg-white px-3 whitespace-nowrap text-blue-700 hover:bg-blue-50 sm:px-5">
-              সাইন ইন
-            </button>
-
-            <button className="btn btn-sm sm:btn-md rounded-lg border-0 bg-blue-500 px-3 whitespace-nowrap text-white hover:bg-blue-600 sm:px-5">
-              সাইন আপ
-            </button>
+            <UserInfo />
           </div>
         </div>
       </div>

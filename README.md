@@ -1,36 +1,76 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🛒 Bazar Dor
+ 
+**Know the market price before you step into the market.**
+ 
+Bazar Dor is a modern web application that helps people keep track of the market prices of different products and see how those prices change over time. Instead of guessing or asking around, users can quickly check current prices, compare them with earlier ones, and make smarter buying decisions.
+ 
 
-## Getting Started
+ ---
+ 
+## ✨ Features
+ 
+- 💰 **Live market prices**: Browse the current prices of a wide range of everyday products in one place.
+- 📈 **Price change tracking**: See whether a product's price has gone up, gone down, or stayed the same compared to before.
+- 🔍 **Search and filter**: Quickly find the product you are looking for by name or category.
+- 🔐 **Secure authentication**: Sign up and sign in with email or Google, powered by Better Auth.
+- 👤 **User profile**: View your account details, email verification status, and update your name anytime.
+- 🔔 **Instant feedback**: Clear toast notifications for actions like sign in, sign out, and profile updates.
+- 📱 **Fully responsive**: A smooth experience on mobile phones, tablets, laptops, and large desktop screens.
 
-First, run the development server:
+---
 
+## 🛠️ Technologies Used
+ 
+| Technology | Purpose |
+| --- | --- |
+| [Next.js](https://nextjs.org/) | React framework for routing, rendering, and performance |
+| [React](https://react.dev/) | Building the user interface |
+| [TypeScript](https://www.typescriptlang.org/) | Type safety and better developer experience |
+| [Tailwind CSS](https://tailwindcss.com/) | Fast, utility-first styling and responsive design |
+| [React Hot Toast](https://react-hot-toast.com/) | Toast notifications |
+| [Better Auth](https://www.better-auth.com/) | Authentication and session management |
+ 
+---
+
+## 🚀 Getting Started
+ 
+### Prerequisites
+ 
+- Node.js 18 or later
+- npm, yarn, or pnpm
+### Installation
+ 
+```bash
+# 1. Clone the repository
+git clone https://github.com/md-ashraful-islam-ullas/BazarDor-PH-B14-A7.git
+ 
+# 2. Move into the project folder
+cd bazar-dor
+ 
+# 3. Install dependencies
+npm install
+```
+ 
+### Environment Variables
+ 
+Create a `.env` file in the root of the project and add your own values:
+ 
+```env
+BETTER_AUTH_SECRET=your_secret_here
+BETTER_AUTH_URL=http://localhost:3000
+MONGODB_URL=your_mongodb_connection_string
+GOOGLE_CLIENT_ID=your_google_client_id
+GOOGLE_CLIENT_SECRET=your_google_client_secret
+GITHUB_CLIENT_ID=your_github_client_id
+GITHUB_CLIENT_SECRET=your_github_client_secret
+```
+ 
+### Run the App
+ 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+ 
+Then open [http://localhost:3000](http://localhost:3000) in your browser.
+ 
+---
